@@ -1,51 +1,96 @@
 <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-  <div class="mx-auto max-w-lg">
-    <form  class="mb-0 mt-6 space-y-4 rounded-lg p-4 sm:p-6 lg:p-8">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="mx-auto max-w-lg flex flex-col space-y-6">
+
       <p class="text-center text-lg font-medium">Create a new account</p>
 
-      <div>
+      <!-- First Name and Last Name (Side by Side) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="mb-4">
+          <label for="firstName" class="sr-only">First Name</label>
+          <input
+            id="firstName"
+            formControlName="firstName"
+            type="text"
+            class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+            placeholder="Enter your first name"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="lastName" class="sr-only">Last Name</label>
+          <input
+            id="lastName"
+            formControlName="lastName"
+            type="text"
+            class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+            placeholder="Enter your last name"
+          />
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-4">
         <label for="email" class="sr-only">Email</label>
-        <div class="relative">
-          <input
-            formControlName="email"
-            id="email"
-            type="email"
-            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter email"
-          />
-        </div>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+          placeholder="Enter your email"
+        />
       </div>
 
-      <div>
+      <!-- Password -->
+      <div class="mb-4">
         <label for="password" class="sr-only">Password</label>
-        <div class="relative">
-          <input
-            formControlName="password"
-            id="password"
-            type="password"
-            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Enter password"
-          />
-        </div>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+          placeholder="Enter your password"
+        />
       </div>
 
-      <div>
+      <!-- Phone -->
+      <div class="mb-4">
+        <label for="phone" class="sr-only">Phone</label>
+        <input
+          id="phone"
+          formControlName="phone"
+          type="tel"
+          class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+          placeholder="Enter your phone number"
+        />
+      </div>
+
+      <!-- Role -->
+      <div class="mb-4">
         <label for="role" class="sr-only">Role</label>
-        <select formControlName="role" id="role" class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm">
-          <option value="internship_seeker">Internship Seeker</option>
-          <option value="employer">Employer</option>
+        <select
+          id="role"
+          formControlName="role"
+          class="w-full rounded-lg border-gray-200 p-4 text-sm shadow-sm"
+        >
+          <option value="" disabled selected>Select your role</option>
+          <option value="INTERNSHIP_SEEKER">Internship Seeker</option>
+          <option value="EMPLOYER">Employer</option>
         </select>
       </div>
 
-      <button type="submit" class="block w-full rounded-lg bg-orange-600 px-5 py-3 text-sm font-medium text-white">
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="block w-full rounded-lg bg-orange-600 px-5 py-3 text-sm font-medium text-white"
+      >
         Register
       </button>
 
-      <p class="text-center text-sm text-gray-500">
+      <!-- Sign-in Link -->
+      <p class="text-center text-sm text-gray-500 mt-4">
         Already have an account?
         <a class="underline" routerLink="/login">Sign in</a>
       </p>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
-
